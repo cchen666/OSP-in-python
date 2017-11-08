@@ -1,5 +1,6 @@
-# OSP-in-python
-## Audience: Whoever interested in debugging openstack issues in python world. Currently we devided the topics into the following 3 sections which are easy to start with. Give us any good examples when troubleshooting the openstack issues using python skills.
+# OSP-in-python 
+## Audience: 
+Whoever interested in debugging openstack issues in python world. Currently we devided the topics into the following 3 sections which are easy to start with. Give us any good examples when troubleshooting the openstack issues using python skills.
 ## Sections (so far):
 ### 1. oslo_log module
 We use oslo_log module to get more details you are interested. First we start with printing values into log files.
