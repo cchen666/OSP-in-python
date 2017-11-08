@@ -1,6 +1,7 @@
-trace module is a useful module which could help us to trace the python code path.
+# trace.py
+Trace module is a useful module which could help us to trace the python code path.
 
-For example, we want to dig down the code in `iscsi` attaching on cinder LVM iscsi driver with instance using cinder volume.
+For example, we want to dig down the code in iscsi attaching on cinder LVM iscsi driver with instance using cinder volume.
 
 We can monitor the status as follows:
 ~~~
