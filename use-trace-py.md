@@ -112,34 +112,36 @@ With python trace module, stop openstack-nova-compute.service, then run followin
 ~~~
 Need following modification to get full path of executed python script.
 ~~~
-[root@el73-osp10-all-virbr1-gnocchi winpdb(keystone_project1-admin)]# diff -u /usr/lib64/python2.7/trace.py /usr/lib64/python2.7/trace.py.orig--- /usr/lib64/python2.7/trace.py    2017-10-23 03:42:32.851708191 +0900
-+++ /usr/lib64/python2.7/trace.py.orig    2017-10-23 03:39:37.413694827 +0900
+[root@el73-osp10-all-virbr1-gnocchi winpdb(keystone_project1-admin)]# diff -u /usr/lib64/python2.7/trace.py.orig /usr/lib64/python2.7/trace.py
+--- /usr/lib64/python2.7/trace.py.bak	2017-11-08 08:05:27.527073555 -0500
++++ /usr/lib64/python2.7/trace.py	2017-11-08 08:06:15.340276781 -0500
 @@ -188,7 +188,7 @@
-
+ 
      base = os.path.basename(path)
      filename, ext = os.path.splitext(base)
--    return path
-+    return filename
-
+-    return filename
++    return path
+ 
  def fullmodname(path):
      """Return a plausible module name for the path."""
 @@ -621,7 +621,7 @@
              if self.start_time:
                  print '%.2f' % (time.time() - self.start_time),
              bname = os.path.basename(filename)
--            print "%s(%d): %s" % (filename, lineno,
-+            print "%s(%d): %s" % (bname, lineno,
+-            print "%s(%d): %s" % (bname, lineno,
++            print "%s(%d): %s" % (filename, lineno,
                                    linecache.getline(filename, lineno)),
          return self.localtrace
-
+ 
 @@ -634,7 +634,7 @@
              if self.start_time:
                  print '%.2f' % (time.time() - self.start_time),
              bname = os.path.basename(filename)
--            print "%s(%d): %s" % (filename, lineno,
-+            print "%s(%d): %s" % (bname, lineno,
+-            print "%s(%d): %s" % (bname, lineno,
++            print "%s(%d): %s" % (filename, lineno,
                                    linecache.getline(filename, lineno)),
          return self.localtrace
+
 ~~~
 In case we want to check one of following scripts from trace output,
 ~~~
