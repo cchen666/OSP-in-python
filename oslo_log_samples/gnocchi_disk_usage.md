@@ -62,4 +62,16 @@ $ grep 'disk.usage' /var/log/ceilometer/compute.log | wc -l
 2017-12-01 09:10:39.808 29245 INFO ceilometer.pipeline [-] cfg_info is pipeline.yaml
 ~~~
 * In this way we found out that the openstack-ceilometer-compute will read `pipeline.yaml` and if we check that file, we will find out that there is no disk.usage defined there. The solution is to append the disk.usage in that file and then restart the openstack-ceilometer-compute service and wait for the next interval to let the ceilometer-compute collect the disk.usage and then hand the data to gnocchi.
+* Check the logs again to confirm `disk.usage` is correctly collected.
+~~~
+2017-12-01 09:36:36.432 2369 INFO ceilometer.agent.manager [-] Polling pollster disk.read.bytes in the context of some_pollsters
+2017-12-01 09:36:36.436 2369 INFO ceilometer.agent.manager [-] Polling pollster network.incoming.packets in the context of some_pollsters
+2017-12-01 09:36:36.444 2369 INFO ceilometer.agent.manager [-] Polling pollster network.outgoing.bytes in the context of some_pollsters
+2017-12-01 09:36:36.447 2369 INFO ceilometer.agent.manager [-] Polling pollster disk.write.requests in the context of some_pollsters
+2017-12-01 09:36:36.451 2369 INFO ceilometer.agent.manager [-] Polling pollster disk.read.requests in the context of some_pollsters
+2017-12-01 09:36:36.455 2369 INFO ceilometer.agent.manager [-] Polling pollster cpu in the context of some_pollsters
+2017-12-01 09:36:36.467 2369 INFO ceilometer.agent.manager [-] Polling pollster disk.usage in the context of some_pollsters
+2017-12-01 09:36:36.481 2369 INFO ceilometer.agent.manager [-] Polling pollster network.incoming.bytes in the context of some_pollsters
+2017-12-01 09:36:36.484 2369 INFO ceilometer.agent.manager [-] Polling pollster network.outgoing.packets in the context of some_pollsters
+~~~
 
