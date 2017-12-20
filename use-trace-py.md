@@ -104,7 +104,17 @@ Need following modification to get full path of executed python script.
 With python trace module, stop openstack-nova-compute.service, then run following script to check what script is executed while starting.
 ~~~
     [root@el73-osp10-all-virbr1-gnocchi winpdb(keystone_project1-admin)]# cat nova-compute.sh
-    /usr/bin/python -m trace -t --ignore-dir=/usr/lib64/python2.7:/usr/lib/python2.7/site-packages/nova/api/validation:/usr/lib/python2.7/site-packages/oslo_config:/usr/lib/python2.7/site-packages/eventlet:/usr/lib/python2.7/site-packages/requests/packages/urllib3/packages:/usr/lib/python2.7/site-packages/nova/objects:/usr/lib/python2.7/site-packages/oslo_log:/usr/lib/python2.7/site-packages/enum --ignore-module=os,pkg_resources,six /usr/bin/nova-compute
+/usr/bin/python -m trace -t \
+--ignore-dir=/usr/lib64/python2.7:\
+/usr/lib/python2.7/site-packages/nova/api/validation:\
+/usr/lib/python2.7/site-packages/oslo_config:\
+/usr/lib/python2.7/site-packages/eventlet:\
+/usr/lib/python2.7/site-packages/requests/packages/urllib3/packages:\
+/usr/lib/python2.7/site-packages/nova/objects:\
+/usr/lib/python2.7/site-packages/oslo_log:\
+/usr/lib/python2.7/site-packages/enum\
+ --ignore-module=os,pkg_resources,six /usr/bin/nova-compute
+
 
     [root@el73-osp10-all-virbr1-gnocchi ~(keystone_project1-admin)]# ./nova-compute.sh | egrep --color=auto '^/.*(cinder|iscsi|libvirt)' | cut -d\( -f1 | uniq -c
 
