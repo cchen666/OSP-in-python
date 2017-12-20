@@ -114,7 +114,7 @@ With python trace module, stop openstack-nova-compute.service, then run followin
 Need following modification to get full path of executed python script.
 ~~~
 [root@el73-osp10-all-virbr1-gnocchi winpdb(keystone_project1-admin)]# diff -u /usr/lib64/python2.7/trace.py.orig /usr/lib64/python2.7/trace.py
---- /usr/lib64/python2.7/trace.py.bak	2017-11-08 08:05:27.527073555 -0500
+--- /usr/lib64/python2.7/trace.py.orig  2017-11-08 08:05:27.527073555 -0500
 +++ /usr/lib64/python2.7/trace.py	2017-11-08 08:06:15.340276781 -0500
 @@ -188,7 +188,7 @@
  
