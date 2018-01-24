@@ -1,4 +1,4 @@
-# Example 1 Case 01925743
+# Example 1 
 
 ### Issue: ERROR: 'unicode' object has no attribute 'get' when creating a heat template
 ~~~

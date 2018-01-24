@@ -1,4 +1,4 @@
-### Case 01990657
+### Example 3
 ### Issue
 * The customer wants to know how the OpenStack handles the situation when the MAC address is duplicate. Their understanding is, there is a chance when two MAC addresses can be duplicate in a single network. And they pointed me the following code:
 ~~~

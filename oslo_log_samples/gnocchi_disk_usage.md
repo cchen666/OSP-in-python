@@ -1,4 +1,4 @@
-## Support Case 01934638
+## Example 2
 ### Issue: gnocchi measures show \<id of disk.usage\> is always empty
 ~~~
 $ gnocchi measures show 6a2ee37f-d034-4b4e-8036-70464ddea3bf | wc -l
