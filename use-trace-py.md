@@ -100,7 +100,6 @@ Need following modification to get full path of executed python script.
          return self.localtrace
 
 ~~~
-~~~
 With python trace module, stop openstack-nova-compute.service, then run following script to check what script is executed while starting.
 ~~~
     [root@el73-osp10-all-virbr1-gnocchi winpdb(keystone_project1-admin)]# cat nova-compute.sh
@@ -163,6 +162,7 @@ In case we want to check one of following scripts from trace output,
         158 /usr/lib/python2.7/site-packages/os_brick/initiator/connectors/iscsi.py
           8 /usr/lib/python2.7/site-packages/os_brick/initiator/connectors/base_iscsi.py
          49 /usr/lib/python2.7/site-packages/os_brick/initiator/connectors/iscsi.py
+~~~
 Run script again and get detailed info from output as follows,
 ~~~
     [root@el73-osp10-all-virbr1-gnocchi ~(keystone_project1-admin)]# nova list
